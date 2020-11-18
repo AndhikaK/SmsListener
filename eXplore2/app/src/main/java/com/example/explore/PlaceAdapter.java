@@ -45,14 +45,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
         PlaceItem currentItem = mPlaceList.get(position);
 
 //        String xid = currentItem.getmXid();
-        String imageURL = currentItem.getmImagePreview();
+//        String imageURL = currentItem.getmImagePreview();
         String placeName = currentItem.getmPlaceName();
         int placeRating = currentItem.getmPlaceRating();
 
         holder.mTextPlaceName.setText(placeName);
         holder.mTextPlaceRating.setText("Rating: " + placeRating);
 
-        Picasso.get().load(imageURL).into(holder.mImagePreview);
+//        Picasso.get().load(imageURL).into(holder.mImagePreview);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
 
         public PlaceViewHolder(@NonNull View itemView) {
             super(itemView);
-            mImagePreview = itemView.findViewById(R.id.image_place_preview);
+//            mImagePreview = itemView.findViewById(R.id.image_place_preview);
             mTextPlaceName = itemView.findViewById(R.id.text_place_name);
             mTextPlaceRating = itemView.findViewById(R.id.text_place_rating);
 

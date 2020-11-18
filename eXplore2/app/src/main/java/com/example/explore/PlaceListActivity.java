@@ -46,7 +46,7 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceAdapter
     }
 
     private void parseJSON() {
-        String jsonURL = "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=104.268781&lat_min=-5.780249&lon_max=105.755215&lat_max=-4.101807&src_attr=wikidata&kinds=interesting_places&format=json&limit=50&apikey=5ae2e3f221c38a28845f05b65ba166329393551235361ab9b66e2889";
+        String jsonURL = "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=103.581796&lon_max=106.066163&lat_min=-6.006062&lat_max=-3.932237&src_attr=wikidata&kinds=natural%2Ccultural%2Csport&format=json&limit=100&apikey=5ae2e3f221c38a28845f05b65ba166329393551235361ab9b66e2889";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, jsonURL, null,
                 new Response.Listener<JSONArray>() {
@@ -61,9 +61,9 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceAdapter
                                 String xid = place.getString("xid");
                                 String placeName = place.getString("name");
                                 int placeRating = place.getInt("rate");
-                                String imageURL = "https://upload.wikimedia.org/wikipedia/commons/f/fe/Stasiun_Waytuba_08-2015.jpg";
+//                                String imageURL = "https://upload.wikimedia.org/wikipedia/commons/f/fe/Stasiun_Waytuba_08-2015.jpg";
 
-                                mPlaceList.add(new PlaceItem(xid, imageURL, placeName, placeRating));
+                                mPlaceList.add(new PlaceItem(xid, placeName, placeRating));
                             }
 
                             mPlaceAdapter = new PlaceAdapter(PlaceListActivity.this, mPlaceList);
