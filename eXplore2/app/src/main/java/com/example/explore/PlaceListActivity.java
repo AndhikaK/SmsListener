@@ -46,7 +46,8 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceAdapter
     }
 
     private void parseJSON() {
-        String jsonURL = "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=103.581796&lon_max=106.066163&lat_min=-6.006062&lat_max=-3.932237&src_attr=wikidata&kinds=natural%2Ccultural%2Csport&format=json&limit=100&apikey=5ae2e3f221c38a28845f05b65ba166329393551235361ab9b66e2889";
+//        String jsonURL = "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=103.581796&lon_max=106.066163&lat_min=-6.006062&lat_max=-3.932237&src_attr=wikidata&kinds=natural%2Ccultural%2Csport&format=json&limit=100&apikey=5ae2e3f221c38a28845f05b65ba166329393551235361ab9b66e2889";
+        String jsonURL = "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=103.581796&lon_max=106.066163&lat_min=-6.006062&lat_max=-3.932237&src_attr=wikidata&kinds=natural%2Ccultural%2Csport%2Chistoric%2Cother%2Cmosques&format=json&limit=200&apikey=5ae2e3f221c38a28845f05b65ba166329393551235361ab9b66e2889";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, jsonURL, null,
                 new Response.Listener<JSONArray>() {
@@ -54,7 +55,6 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceAdapter
                     public void onResponse(JSONArray response) {
                         try {
                             for (int i = 0; i < response.length(); i++) {
-                                Log.e("Error1", "ke");
                                 JSONObject place = response.getJSONObject(i);
 
 //                                parseSecondJSON(place.getString("xid"));
@@ -90,9 +90,6 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceAdapter
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            int i = 0;
-                            Log.e("Cek", "ke-" + i++);
-
                             String xid = response.getString("xid");
                             String placeName = response.getString("name");
                             int placeRating = response.getInt("rate");
